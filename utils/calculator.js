@@ -70,7 +70,6 @@ function getMentalHealthLevel(totalScore) {
  * @returns {Array} 各维度评价数组
  */
 function getDimensionEvaluations(dimensionScores) {
-  console.log('getDimensionEvaluations called with dimensionScores:', dimensionScores);
   const results = dimensionScores.map(dimension => {
     let evaluation = "";
     let evaluationKey = ""; // 用于CSS类名匹配的英文标识符
@@ -132,11 +131,9 @@ function getDimensionEvaluations(dimensionScores) {
       bgClass: bgClass         // 预计算的背景类名
     };
     
-    console.log('Dimension evaluation result:', result);
     return result;
   });
   
-  console.log('getDimensionEvaluations returning:', results);
   return results;
 }
 

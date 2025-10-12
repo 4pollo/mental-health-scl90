@@ -15,15 +15,6 @@ Page({
     dimensionEvaluations: []
   },
 
-  // 测试函数 - 用于调试
-  testEvaluationClasses: function() {
-    console.log('Testing evaluation classes:');
-    console.log('normal:', this.getEvaluationColorClass('normal'), this.getEvaluationBgClass('normal'));
-    console.log('mild:', this.getEvaluationColorClass('mild'), this.getEvaluationBgClass('mild'));
-    console.log('moderate:', this.getEvaluationColorClass('moderate'), this.getEvaluationBgClass('moderate'));
-    console.log('severe:', this.getEvaluationColorClass('severe'), this.getEvaluationBgClass('severe'));
-  },
-
   onLoad: function (options) {
     this.calculateResults();
   },
@@ -32,8 +23,6 @@ Page({
   calculateResults: function() {
     const app = getApp();
     const answers = app.globalData.testResults;
-    
-    console.log('calculateResults called with answers:', answers);
     
     if (!answers || answers.length !== 90) {
       wx.showToast({
@@ -48,27 +37,28 @@ Page({
     
     // 计算各维度得分
     const dimensionScores = calculateDimensionScores(answers, scl90Dimensions);
-    console.log('dimensionScores:', dimensionScores);
     
     // 获取心理健康水平
     const mentalHealthLevel = getMentalHealthLevel(totalScore);
     
     // 获取各维度评价
     const dimensionEvaluations = getDimensionEvaluations(dimensionScores);
-    console.log('dimensionEvaluations:', dimensionEvaluations);
     
     this.setData({
       totalScore: totalScore,
       mentalHealthLevel: mentalHealthLevel,
       dimensionEvaluations: dimensionEvaluations
     });
-    
-    console.log('setData completed with dimensionEvaluations:', dimensionEvaluations);
   },
 
   // 重新测试
   restartTest: function() {
-    wx.redirectTo({
+    // 清除全局数据
+    const app = getApp();
+    app.globalData.testResults = null;
+    
+    // 使用reLaunch彻底重启并跳转到测试页面，确保所有页面都被销毁
+    wx.reLaunch({
       url: '/pages/test/test'
     });
   },

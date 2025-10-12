@@ -26,23 +26,21 @@
           <view class="text-white text-xl font-bold">{{question}}</view>
         </view>
         
-        <radio-group bindchange="onOptionChange" class="space-y-4 mb-8">
-          <label wx:for="{{options}}" wx:key="index" wx:for-index="idx" class="flex items-center justify-between p-4 rounded-lg border-2 border-gray-200 hover-border-blue-500 transition-colors cursor-pointer {{item.checked ? 'border-3b82f6 bg-gray-100' : ''}} shadow-sm {{idx < options.length - 1 ? 'mb-4' : ''}}">
+        <!-- 移除 radio-group 的 bindchange 事件，只保留 label 的点击事件 -->
+        <view class="space-y-4 mb-8">
+          <label wx:for="{{options}}" wx:key="index" wx:for-index="idx" class="flex items-center justify-between p-4 rounded-lg border-2 border-gray-200 hover-border-blue-500 transition-colors cursor-pointer {{item.checked ? 'border-3b82f6 bg-gray-100' : ''}} shadow-sm {{idx < options.length - 1 ? 'mb-4' : ''}} {{isProcessing ? 'opacity-50 disabled-pointer-events' : ''}}" bindtap="onLabelTap" data-value="{{item.value}}">
             <view class="text-foreground text-base">{{item.label}}</view>
             <radio value="{{item.value}}" checked="{{item.checked}}" color="{{radioCheckedColor}}" class="ml-3" />
           </label>
-        </radio-group>
+        </view>
         
         <view class="flex justify-between gap-3">
           <!-- 移除上一题按钮中的图标 -->
-          <button bindtap="prevQuestion" disabled="{{currentQuestion <= 1}}" class="flex-1 flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-gray-100 hover-bg-blue-100 text-blue-400 transition-colors duration-200 shadow-md {{currentQuestion <= 1 ? 'opacity-50' : ''}}">
+          <button bindtap="prevQuestion" disabled="{{currentQuestion <= 1 || isProcessing}}" class="flex-1 flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-gray-100 hover-bg-blue-100 text-blue-400 transition-colors duration-200 shadow-md {{currentQuestion <= 1 ? 'opacity-50' : ''}} {{isProcessing ? 'opacity-50' : ''}}">
             上一题
           </button>
-          <!-- 移除下一题按钮中的图标 -->
-          <button bindtap="nextQuestion" disabled="{{!selectedValue}}" class="flex-1 flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-black hover-bg-blue-600 text-white transition-colors duration-200 shadow-md {{!selectedValue ? 'opacity-50' : ''}}" wx:if="{{currentQuestion < 90}}">
-            下一题
-          </button>
-          <button bindtap="submitTest" class="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-emerald-500 hover-bg-emerald-600 text-white transition-colors duration-200 shadow-md p-2" wx:if="{{currentQuestion >= 90}}">
+          <!-- 只在最后一题显示提交测试按钮 -->
+          <button wx:if="{{currentQuestion >= 90}}" bindtap="submitTest" class="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-emerald-500 hover-bg-emerald-600 text-white transition-colors duration-200 shadow-md p-2 {{isProcessing ? 'opacity-50' : ''}}">
             <!-- 复选标记图标 -->
             <image src="{{icons.checkmark}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(1);" />提交测试
           </button>

@@ -17,10 +17,14 @@ Page({
     ],
     selectedValue: '',
     answers: new Array(90).fill(0), // 存储用户答案，初始化为0
-    radioCheckedColor: '#000000' // 默认黑色
+    radioCheckedColor: '#000000', // 默认黑色
+    isProcessing: false // 防重复点击标志
   },
 
   onLoad: function (options) {
+    // 重置测试数据
+    this.resetTestData();
+    
     // 获取当前主题颜色
     const themeColors = getCurrentThemeColors();
     this.setData({
@@ -28,6 +32,29 @@ Page({
     });
     
     this.loadQuestion();
+  },
+
+  // 重置测试数据
+  resetTestData: function() {
+    // 重置当前题目
+    // 重置答案数组
+    const resetAnswers = new Array(90).fill(0);
+    // 重置选项状态
+    const resetOptions = this.data.options.map(option => {
+      return {
+        ...option,
+        checked: false
+      };
+    });
+    
+    this.setData({
+      currentQuestion: 1,
+      progress: 0,
+      selectedValue: '',
+      answers: resetAnswers,
+      options: resetOptions,
+      isProcessing: false
+    });
   },
 
   // 加载当前题目
@@ -62,9 +89,21 @@ Page({
     });
   },
 
-  // 选项改变事件
-  onOptionChange: function(e) {
-    const selectedValue = e.detail.value;
+  // label点击事件 - 处理选项选择
+  onLabelTap: function(e) {
+    // 防重复点击校验
+    if (this.data.isProcessing) {
+      return;
+    }
+    
+    const selectedValue = e.currentTarget.dataset.value;
+    
+    // 设置处理状态，防止重复点击
+    this.setData({
+      isProcessing: true
+    });
+    
+    // 更新选项状态
     this.updateOptions(selectedValue);
     
     // 保存答案
@@ -73,30 +112,90 @@ Page({
     this.setData({
       answers: answers
     });
+    
+    // 无论点击哪个选项都跳转到下一题（如果不是最后一题）
+    if (this.data.currentQuestion < 90) {
+      // 延迟一小段时间再跳转，确保用户能看到选择反馈
+      setTimeout(() => {
+        this.setData({
+          currentQuestion: this.data.currentQuestion + 1
+        });
+        this.loadQuestion();
+        // 重置处理状态
+        this.setData({
+          isProcessing: false
+        });
+      }, 300);
+    } else {
+      // 重置处理状态
+      this.setData({
+        isProcessing: false
+      });
+    }
   },
 
   // 上一题
   prevQuestion: function() {
+    // 防重复点击校验
+    if (this.data.isProcessing) {
+      return;
+    }
+    
     if (this.data.currentQuestion > 1) {
+      // 设置处理状态，防止重复点击
+      this.setData({
+        isProcessing: true
+      });
+      
       this.setData({
         currentQuestion: this.data.currentQuestion - 1
       });
       this.loadQuestion();
+      
+      // 重置处理状态
+      this.setData({
+        isProcessing: false
+      });
     }
   },
 
-  // 下一题
+  // 下一题（现在主要用于手动跳转）
   nextQuestion: function() {
+    // 防重复点击校验
+    if (this.data.isProcessing) {
+      return;
+    }
+    
     if (this.data.selectedValue && this.data.currentQuestion < 90) {
+      // 设置处理状态，防止重复点击
+      this.setData({
+        isProcessing: true
+      });
+      
       this.setData({
         currentQuestion: this.data.currentQuestion + 1
       });
       this.loadQuestion();
+      
+      // 重置处理状态
+      this.setData({
+        isProcessing: false
+      });
     }
   },
 
   // 提交测试
   submitTest: function() {
+    // 防重复点击校验
+    if (this.data.isProcessing) {
+      return;
+    }
+    
+    // 设置处理状态，防止重复点击
+    this.setData({
+      isProcessing: true
+    });
+    
     // 检查是否所有题目都已回答
     const unanswered = this.data.answers.filter(answer => answer === 0);
     
@@ -108,10 +207,18 @@ Page({
           if (res.confirm) {
             this.goToResult();
           }
+          // 重置处理状态
+          this.setData({
+            isProcessing: false
+          });
         }
       });
     } else {
       this.goToResult();
+      // 重置处理状态
+      this.setData({
+        isProcessing: false
+      });
     }
   },
 
