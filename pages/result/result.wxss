@@ -1,0 +1,370 @@
+/* Remove duplicate color definitions and use global styles from app.wxss */
+/* Only keep page-specific styles */
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-white-90 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 添加 result-container 样式 */
+.result-container {
+  margin: auto 0;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+/* Score color classes */
+.bg-green {
+  background-color: #ffffff; /* 改为白色 */
+}
+
+.bg-orange {
+  background-color: #f5f5f5; /* 改为浅灰色 */
+}
+
+.bg-red {
+  background-color: #e0e0e0; /* 改为中等浅灰色 */
+}
+
+.bg-darkred {
+  background-color: #cccccc; /* 改为中等灰色 */
+}
+
+.text-green {
+  color: #000000; /* 黑色 */
+}
+
+.text-orange {
+  color: #000000; /* 黑色 */
+}
+
+.text-red {
+  color: #000000; /* 黑色 */
+}
+
+.text-darkred {
+  color: #000000; /* 黑色 */
+}
+
+.bg-green-bar {
+  background-color: #000000; /* 黑色 */
+}
+
+.bg-orange-bar {
+  background-color: #000000; /* 黑色 */
+}
+
+.bg-red-bar {
+  background-color: #000000; /* 黑色 */
+}
+
+.bg-darkred-bar {
+  background-color: #000000; /* 黑色 */
+}
+
+.space-y-4 > view:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.space-y-4 > view:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.disabled-pointer-events:disabled {
+  pointer-events: none;
+}
+
+.disabled-opacity-50:disabled {
+  opacity: 0.5;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-200 {
+  transition-duration: 200ms;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-foreground {
+  color: #000000; /* 黑色文字 */
+}
+
+.text-muted-foreground {
+  color: #666666; /* 中等灰色，不刺眼 */
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* 增加w-5和h-5的定义，用于小图标 */
+.w-5 {
+  width: 1.25rem;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
+/* 增加w-6和h-6的定义，用于中等大小的图标 */
+.w-6 {
+  width: 1.5rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+/* 增加w-7和h-7的定义，用于稍大的图标 */
+.w-7 {
+  width: 1.75rem;
+}
+
+.h-7 {
+  height: 1.75rem;
+}
+
+/* 增加w-8和h-8的定义，用于较大图标 */
+.w-8 {
+  width: 2rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+/* 增加w-10和h-10的定义，用于大图标 */
+.w-10 {
+  width: 2.5rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+/* 增加w-12和h-12的定义，用于更大的图标 */
+.w-12 {
+  width: 3rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+/* Ensure restart test button takes full width */
+.mt-6 button.w-full {
+  width: 100% !important;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure button container takes full width */
+.mt-6 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}

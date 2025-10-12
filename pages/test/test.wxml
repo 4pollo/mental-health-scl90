@@ -1,0 +1,57 @@
+<view class="min-h-screen bg-white p-4 py-8">
+  <view class="max-w-md mx-auto">
+    <view class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden shadow-lg">
+      <view class="bg-gray-200 p-6 text-black">
+        <view class="flex items-center justify-between mb-4">
+          <view class="text-lg font-bold">题目 {{currentQuestion}} / 90</view>
+          <view class="text-lg font-bold">{{progress}}%</view>
+        </view>
+        <view class="w-full bg-gray-200 rounded-full h-25">
+          <view class="bg-black h-25 rounded-full" style="width: {{progress}}%"></view>
+        </view>
+      </view>
+      
+      <!-- 在进度条和题目区域之间添加分隔线 -->
+      <view class="border-b-2 border-blue-50"></view>
+      
+      <!-- 调整布局结构，将题目区域与进度条同级 -->
+      <view class="p-6">
+        <!-- 优化题目显示区域，使其更加醒目 -->
+        <view class="mb-8 bg-black rounded-xl p-6 border-3 border-3b82f6 shadow-lg transform transition-transform hover-scale-105 relative">
+          <!-- 增加题目标签，绝对定位到父级顶部边缘 -->
+          <view class="absolute -top-7p5 left-4 inline-block bg-white text-black text-xs font-bold px-3 py-1 rounded-full border-2 border-3b82f6">
+            题目
+          </view>
+          <!-- 增加题目文本的醒目程度 -->
+          <view class="text-white text-xl font-bold">{{question}}</view>
+        </view>
+        
+        <radio-group bindchange="onOptionChange" class="space-y-4 mb-8">
+          <label wx:for="{{options}}" wx:key="index" wx:for-index="idx" class="flex items-center justify-between p-4 rounded-lg border-2 border-gray-200 hover-border-blue-500 transition-colors cursor-pointer {{item.checked ? 'border-3b82f6 bg-gray-100' : ''}} shadow-sm {{idx < options.length - 1 ? 'mb-4' : ''}}">
+            <view class="text-foreground text-base">{{item.label}}</view>
+            <radio value="{{item.value}}" checked="{{item.checked}}" color="{{radioCheckedColor}}" class="ml-3" />
+          </label>
+        </radio-group>
+        
+        <view class="flex justify-between gap-3">
+          <!-- 移除上一题按钮中的图标 -->
+          <button bindtap="prevQuestion" disabled="{{currentQuestion <= 1}}" class="flex-1 flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-gray-100 hover-bg-blue-100 text-blue-400 transition-colors duration-200 shadow-md {{currentQuestion <= 1 ? 'opacity-50' : ''}}">
+            上一题
+          </button>
+          <!-- 移除下一题按钮中的图标 -->
+          <button bindtap="nextQuestion" disabled="{{!selectedValue}}" class="flex-1 flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-black hover-bg-blue-600 text-white transition-colors duration-200 shadow-md {{!selectedValue ? 'opacity-50' : ''}}" wx:if="{{currentQuestion < 90}}">
+            下一题
+          </button>
+          <button bindtap="submitTest" class="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-emerald-500 hover-bg-emerald-600 text-white transition-colors duration-200 shadow-md p-2" wx:if="{{currentQuestion >= 90}}">
+            <!-- 复选标记图标 -->
+            <image src="{{icons.checkmark}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(1);" />提交测试
+          </button>
+        </view>
+      </view>
+    </view>
+    
+    <view class="text-center text-xs text-muted-foreground mt-6">
+      请根据您最近一周的感受选择最符合的选项
+    </view>
+  </view>
+</view>

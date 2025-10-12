@@ -1,0 +1,102 @@
+<view class="min-h-screen bg-white relative overflow-hidden">
+  <view class="absolute top-0 left-0 w-full h-64 bg-black"></view>
+  <view class="absolute top-48 left-0 right-0 h-16 bg-black"></view>
+  <view class="relative min-h-screen flex flex-col items-center justify-center p-4 py-12">
+    <view class="text-center mb-8 space-y-3">
+      <view class="flex items-center justify-center w-20 h-20 bg-black rounded-xl mb-4 mx-auto">
+        <!-- 大脑图标 -->
+        <image src="{{icons.brain}}" class="w-12 h-12" mode="aspectFit" style="filter: brightness(0) invert(1);" />
+      </view>
+      <view class="text-white text-2xl font-bold">SCL-90 心理健康测评</view>
+      <view class="text-white-90 max-w-sm mx-auto">专业心理评估工具，科学测评您的心理健康状况</view>
+    </view>
+    
+    <view class="w-full max-w-md mb-6 grid grid-cols-3 gap-3">
+      <view class="bg-white rounded-lg p-4 text-center border-2 border-light shadow-lg transform transition-transform hover-scale-105">
+        <view class="text-foreground text-xl font-bold">10万+</view>
+        <view class="text-xs text-muted-foreground mt-1">已测试</view>
+      </view>
+      <view class="bg-white rounded-lg p-4 text-center border-2 border-light shadow-lg transform transition-transform hover-scale-105">
+        <view class="text-foreground text-xl font-bold">98%</view>
+        <view class="text-xs text-muted-foreground mt-1">准确率</view>
+      </view>
+      <view class="bg-white rounded-lg p-4 text-center border-2 border-light shadow-lg transform transition-transform hover-scale-105">
+        <view class="text-foreground text-xl font-bold">90题</view>
+        <view class="text-xs text-muted-foreground mt-1">测试项目</view>
+      </view>
+    </view>
+    
+    <view class="w-full max-w-md">
+      <view class="bg-white rounded-2xl border-2 border-light overflow-hidden shadow-lg">
+        <view class="bg-black p-6 text-white">
+          <view class="flex items-center gap-3">
+            <view class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: rgba(255, 255, 255, 0.9);">
+              <!-- 剪贴板图标 -->
+              <image src="{{icons.clipboard}}" class="w-7 h-7" mode="aspectFit" style="filter: brightness(0) invert(0);" />
+            </view>
+            <view>
+              <view class="text-lg font-bold">测试说明</view>
+              <view class="text-xs text-white-90 mt-1">Test Instructions</view>
+            </view>
+          </view>
+        </view>
+        <view class="p-6 space-y-4">
+          <view class="space-y-3">
+            <view class="flex items-start gap-3 p-3 rounded-lg bg-gray-100">
+              <view class="w-8 h-8 rounded-lg bg-black flex items-center justify-center flex-shrink-0 mt-05">
+                <!-- 计时器图标 -->
+                <image src="{{icons.timer}}" class="w-5 h-5" mode="aspectFit" style="filter: brightness(0) invert(1);" />
+              </view>
+              <view>
+                <view class="text-foreground">约5-10分钟完成</view>
+                <view class="text-sm text-muted-foreground mt-05">轻松快速的测试体验</view>
+              </view>
+            </view>
+            <view class="flex items-start gap-3 p-3 rounded-lg bg-gray-100">
+              <view class="w-8 h-8 rounded-lg bg-black flex items-center justify-center flex-shrink-0 mt-05">
+                <!-- 图表图标 -->
+                <image src="{{icons.chart}}" class="w-5 h-5" mode="aspectFit" style="filter: brightness(0) invert(1);" />
+              </view>
+              <view>
+                <view class="text-foreground">90道精选题目</view>
+                <view class="text-sm text-muted-foreground mt-05">经过科学验证的测评问题</view>
+              </view>
+            </view>
+            <view class="flex items-start gap-3 p-3 rounded-lg bg-gray-100">
+              <view class="w-8 h-8 rounded-lg bg-black flex items-center justify-center flex-shrink-0 mt-05">
+                <!-- 灯泡图标 -->
+                <image src="{{icons.lightbulb}}" class="w-5 h-5" mode="aspectFit" style="filter: brightness(0) invert(1);" />
+              </view>
+              <view>
+                <view class="text-foreground">跟随你的直觉</view>
+                <view class="text-sm text-muted-foreground mt-05">选择最符合你的答案</view>
+              </view>
+            </view>
+          </view>
+          <view class="pt-2">
+            <button bindtap="startTest" class="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none w-full h-12 bg-black hover-bg-blue-600 text-white transition-colors duration-200 shadow-md p-2 mb-3">
+              <!-- 复选标记图标 -->
+              <image src="{{icons.checkmark}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(1);" />
+              <text class="text-base font-bold">开始测评</text>
+            </button>
+            <button bindtap="randomTest" class="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none w-full h-12 bg-gray-300 hover-bg-gray-400 text-black transition-colors duration-200 shadow-md p-2" disabled="{{randomTestLoading}}">
+              <!-- 随机图标 -->
+              <image wx:if="{{!randomTestLoading}}" src="{{icons.lightbulb}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(0);" />
+              <view wx:if="{{randomTestLoading}}" class="w-25 h-25 flex items-center justify-center">
+                <view class="w-4 h-4 border-2 border-gray-600 border-t-transparent rounded-full animate-spin"></view>
+              </view>
+              <text class="text-base font-bold">{{randomTestLoading ? '生成中...' : '随机测试'}}</text>
+            </button>
+            <view class="text-center text-xs text-muted-foreground mt-3">测试结果仅供个人参考，不能替代专业诊断</view>
+          </view>
+        </view>
+      </view>
+      <view class="text-center mt-6 space-y-2">
+        <view class="inline-flex items-center gap-3 text-sm text-muted-foreground bg-white border-2 border-blue-200 px-4 py-2 rounded-full shadow-sm hover-animate-pulse mx-auto">
+          <view class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></view>
+          <text class="whitespace-nowrap">已有 5,432 人今日完成测试</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,773 @@
+/* Tailwind-like utility classes */
+/* Background colors - 黑白灰配色方案 */
+
+/* 删除重复的 bg-blue-50 样式，保留表达更清晰的 bg-gray-100 */
+
+.bg-white {
+  background-color: #ffffff; /* 白色 */
+}
+
+.bg-gray-100 {
+  background-color: #f5f5f5; /* 浅灰色 */
+}
+
+.bg-gray-200 {
+  background-color: #e0e0e0; /* 中等浅灰色 */
+}
+
+.bg-gray-300 {
+  background-color: #cccccc; /* 中等灰色 */
+}
+
+.bg-black {
+  background-color: #000000; /* 黑色 */
+}
+
+.bg-emerald-500 {
+  background-color: #000000; /* 黑色 */
+}
+
+.bg-emerald-600 {
+  background-color: #000000; /* 黑色 */
+}
+
+.bg-orange-300 {
+  background-color: #000000; /* 黑色 */
+}
+
+.bg-red-300 {
+  background-color: #000000; /* 黑色 */
+}
+
+.bg-red-400 {
+  background-color: #000000; /* 黑色 */
+}
+
+/* Text colors */
+.text-foreground {
+  color: #000000; /* 黑色文字 */
+}
+
+.text-muted-foreground {
+  color: #666666; /* 中等灰色文字 */
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.text-black {
+  color: #000000; /* 黑色 */
+}
+
+.text-gray-500 {
+  color: #666666; /* 中等灰色 */
+}
+
+.text-white-90 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Border colors */
+.border-2 {
+  border-width: 2rpx;
+  border-style: solid;
+}
+
+.border-3 {
+  border-width: 3rpx;
+  border-style: solid;
+}
+
+.border-b-2 {
+  border-bottom-width: 2rpx;
+  border-bottom-style: solid;
+}
+
+.border-blue-50 {
+  border-color: #f5f5f5; /* 浅灰色边框 */
+}
+
+.border-blue-100 {
+  border-color: #e0e0e0; /* 中等浅灰色边框 */
+}
+
+.border-blue-200 {
+  border-color: #cccccc; /* 中等灰色边框 */
+}
+
+.border-3b82f6 {
+  border-color: #000000; /* 黑色边框 */
+}
+
+.border-black {
+  border-color: #000000; /* 黑色边框 */
+}
+
+.border-gray-100 {
+  border-color: #f5f5f5; /* 浅灰色边框 */
+}
+
+.border-gray-200 {
+  border-color: #e0e0e0; /* 中等浅灰色边框 */
+}
+
+.border-gray-300 {
+  border-color: #cccccc; /* 中等灰色边框 */
+}
+
+/* Hover states */
+.hover-bg-blue-600:hover {
+  background-color: #000000; /* 黑色 */
+}
+
+.hover-bg-emerald-600:hover {
+  background-color: #000000;
+}
+
+.hover-bg-blue-100:hover {
+  background-color: #e0e0e0; /* 中等浅灰色 */
+}
+
+.hover-bg-black:hover {
+  background-color: #000000; /* 黑色 */
+}
+
+.hover-border-blue-500:hover {
+  border-color: #000000; /* 黑色 */
+}
+
+.hover-border-black:hover {
+  border-color: #000000; /* 黑色 */
+}
+
+.hover-scale-105:hover {
+  transform: scale(1.05);
+}
+
+/* Transitions */
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Transforms */
+.transform {
+  transform: translateZ(0);
+}
+
+.hover-scale-105:hover {
+  transform: scale(1.05);
+}
+
+/* Shadows - 黑白灰配色的阴影 */
+.shadow-lg {
+  box-shadow: 0 10rpx 15rpx -3rpx rgba(0, 0, 0, 0.1), 0 4rpx 6rpx -2rpx rgba(0, 0, 0, 0.05);
+}
+
+.shadow-md {
+  box-shadow: 0 4rpx 6rpx -1rpx rgba(0, 0, 0, 0.1), 0 2rpx 4rpx -1rpx rgba(0, 0, 0, 0.06);
+}
+
+.shadow-sm {
+  box-shadow: 0 1rpx 2rpx 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Animations */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.hover-animate-pulse:hover {
+  animation: pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .7;
+  }
+}
+
+/* Layout */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Spacing */
+.p-0 {
+  padding: 0;
+}
+
+.p-1 {
+  padding: 4rpx;
+}
+
+.p-2 {
+  padding: 8rpx;
+}
+
+.p-3 {
+  padding: 12rpx;
+}
+
+.p-4 {
+  padding: 16rpx;
+}
+
+.p-5 {
+  padding: 20rpx;
+}
+
+.p-6 {
+  padding: 24rpx;
+}
+
+.py-8 {
+  padding-top: 32rpx;
+  padding-bottom: 32rpx;
+}
+
+.py-12 {
+  padding-top: 48rpx;
+  padding-bottom: 48rpx;
+}
+
+.m-4 {
+  margin: 16rpx;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mb-4 {
+  margin-bottom: 16rpx;
+}
+
+.mb-6 {
+  margin-bottom: 24rpx;
+}
+
+.mb-8 {
+  margin-bottom: 32rpx;
+}
+
+.mt-05 {
+  margin-top: 4rpx;
+}
+
+.mt-1 {
+  margin-top: 4rpx;
+}
+
+.mt-2 {
+  margin-top: 8rpx;
+}
+
+.mt-3 {
+  margin-top: 12rpx;
+}
+
+.mt-4 {
+  margin-top: 16rpx;
+}
+
+.mt-6 {
+  margin-top: 24rpx;
+}
+
+.ml-1 {
+  margin-left: 4rpx;
+}
+
+.ml-2 {
+  margin-left: 8rpx;
+}
+
+.mr-2 {
+  margin-right: 8rpx;
+}
+
+.mr-3 {
+  margin-right: 12rpx;
+}
+
+/* Sizing */
+.w-full {
+  width: 100%;
+}
+
+.w-2 {
+  width: 8rpx;
+}
+
+.w-4 {
+  width: 16rpx;
+}
+
+.w-5 {
+  width: 20rpx;
+}
+
+.w-6 {
+  width: 24rpx;
+}
+
+.w-8 {
+  width: 32rpx;
+}
+
+.w-10 {
+  width: 40rpx;
+}
+
+.w-12 {
+  width: 48rpx;
+}
+
+.w-16 {
+  width: 64rpx;
+}
+
+.w-20 {
+  width: 80rpx;
+}
+
+.w-25 {
+  width: 25rpx;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-2 {
+  height: 8rpx;
+}
+
+.h-4 {
+  height: 16rpx;
+}
+
+.h-5 {
+  height: 20rpx;
+}
+
+.h-6 {
+  height: 24rpx;
+}
+
+.h-8 {
+  height: 32rpx;
+}
+
+.h-10 {
+  height: 40rpx;
+}
+
+.h-12 {
+  height: 48rpx;
+}
+
+.h-16 {
+  height: 64rpx;
+}
+
+.h-20 {
+  height: 80rpx;
+}
+
+.h-25 {
+  height: 25rpx;
+}
+
+.max-w-md {
+  max-width: 768rpx;
+}
+
+.max-w-sm {
+  max-width: 640rpx;
+}
+
+/* Rounded corners */
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.rounded-md {
+  border-radius: 12rpx;
+}
+
+.rounded-lg {
+  border-radius: 16rpx;
+}
+
+.rounded-xl {
+  border-radius: 20rpx;
+}
+
+.rounded-2xl {
+  border-radius: 24rpx;
+}
+
+.rounded-full {
+  border-radius: 9999rpx;
+}
+
+/* Borders */
+.border-2 {
+  border-width: 2rpx;
+  border-style: solid;
+}
+
+.border-3 {
+  border-width: 3rpx;
+  border-style: solid;
+}
+
+.border-b-2 {
+  border-bottom-width: 2rpx;
+  border-bottom-style: solid;
+}
+
+/* Display */
+.inline-flex {
+  display: inline-flex;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+/* Grid */
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gap-1 {
+  gap: 4rpx;
+}
+
+.gap-2 {
+  gap: 8rpx;
+}
+
+.gap-3 {
+  gap: 12rpx;
+}
+
+.gap-4 {
+  gap: 16rpx;
+}
+
+.gap-5 {
+  gap: 20rpx;
+}
+
+.gap-6 {
+  gap: 24rpx;
+}
+
+.space-y-2 > view + view {
+  margin-top: 8rpx;
+}
+
+.space-y-3 > view + view {
+  margin-top: 12rpx;
+}
+
+.space-y-4 > view + view {
+  margin-top: 16rpx;
+}
+
+/* Typography */
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-sm {
+  font-size: 28rpx;
+}
+
+.text-base {
+  font-size: 32rpx;
+}
+
+.text-lg {
+  font-size: 36rpx;
+}
+
+.text-xl {
+  font-size: 40rpx;
+}
+
+.text-2xl {
+  font-size: 48rpx;
+}
+
+.text-6xl {
+  font-size: 120rpx;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Flexbox */
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* Cursor */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Disabled states */
+.disabled-pointer-events {
+  pointer-events: none;
+}
+
+.disabled-opacity-50 {
+  opacity: 0.5;
+}
+
+/* Outline */
+.outline-none {
+  outline: none;
+}
+
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Transforms */
+.hover-scale-105:hover {
+  transform: scale(1.05);
+}
+
+/* Global title style */
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin: 20rpx 0;
+  color: #000000;
+}
+
+/* Global button style */
+.button {
+  width: 80%;
+  height: 80rpx;
+  background-color: #000000;
+  color: white;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20rpx 0;
+}
+
+.result-container {
+  margin: 20rpx 0;
+}
+
+/* Global card style */
+.card {
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+/* Global text style */
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-success {
+  color: #000000; /* 黑色 */
+}
+
+.text-warning {
+  color: #000000; /* 黑色 */
+}
+
+.text-danger {
+  color: #000000; /* 黑色 */
+}
+
+.text-primary {
+  color: #000000; /* 黑色 */
+}
+
+/* Global spacing */
+.mt-10 {
+  margin-top: 10rpx;
+}
+
+.mt-20 {
+  margin-top: 20rpx;
+}
+
+.mb-10 {
+  margin-bottom: 10rpx;
+}
+
+.mb-20 {
+  margin-bottom: 20rpx;
+}
+
+.m-20 {
+  margin: 20rpx;
+}
+
+/* Positioning */
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.-top-3 {
+  top: -12rpx;
+}
+
+.-top-7p5 {
+  top: -30rpx;
+}
+
+.left-4 {
+  left: 16rpx;
+}
+
+/* Icon styles */
+.header-icon {
+  font-size: 120rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.nav-icon {
+  font-size: 30rpx;
+  margin: 0 10rpx;
+}
+
+.submit-icon {
+  font-size: 35rpx;
+  margin-right: 15rpx;
+}
+
+.result-icon {
+  font-size: 100rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.restart-icon {
+  font-size: 35rpx;
+  margin-right: 15rpx;
+}

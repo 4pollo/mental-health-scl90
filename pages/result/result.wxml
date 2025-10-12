@@ -1,0 +1,77 @@
+<view class="min-h-screen bg-white p-4 py-8">
+  <view class="max-w-md mx-auto">
+    <!-- 添加一个用于生成图片的容器 -->
+    <view class="result-container" id="resultContainer">
+      <view class="bg-white rounded-2xl border-2 border-light overflow-hidden mb-6 shadow-lg">
+        <view class="bg-black p-6 text-white text-center">
+          <view class="flex items-center justify-center w-16 h-16 bg-black rounded-xl mb-4 mx-auto">
+            <!-- 大脑图标 -->
+            <image src="{{icons.brain}}" class="w-10 h-10" mode="aspectFit" style="filter: brightness(0) invert(1);" />
+          </view>
+          <view class="text-2xl font-bold mb-2">测试结果</view>
+          <view class="text-white-90">您的心理健康评估报告</view>
+        </view>
+        
+        <view class="p-6">
+          <view class="flex gap-4 mb-6">
+            <view class="flex-1 bg-white rounded-lg p-4 text-center border-2 border-light shadow-lg transform transition-transform hover-scale-105">
+              <view class="text-foreground text-xl font-bold {{getScoreColorClass(totalScore)}}">{{totalScore}}</view>
+              <view class="text-xs text-muted-foreground mt-1">总分</view>
+            </view>
+            <view class="flex-1 bg-white rounded-lg p-4 text-center border-2 border-light shadow-lg transform transition-transform hover-scale-105" bindtap="showMentalHealthDescription">
+              <view class="text-foreground text-xl font-bold {{getScoreColorClass(totalScore)}}">{{mentalHealthLevel.level}}</view>
+              <view class="text-xs text-muted-foreground mt-1">程度</view>
+            </view>
+          </view>
+          
+          <view class="border-t border-gray-200 pt-6">
+            <view class="flex items-center gap-2 mb-4">
+              <!-- 结果图标 -->
+              <image src="{{icons.result}}" class="w-6 h-6" mode="aspectFit" style="filter: brightness(0) invert(0);" />
+              <view class="text-lg font-bold">各维度得分详情</view>
+            </view>
+            
+            <view class="space-y-4">
+              <view wx:for="{{dimensionEvaluations}}" wx:key="index" class="p-4 rounded-lg border border-gray-200 shadow-sm">
+                <view class="flex justify-between items-center mb-2">
+                  <view class="font-medium text-black">{{item.name}}</view>
+                  <view class="text-sm text-muted-foreground">平均分: {{item.average}}</view>
+                </view>
+                <view class="flex justify-between items-center mb-2">
+                  <view class="text-sm text-muted-foreground">总分: {{item.score}}</view>
+                  <view class="text-sm font-bold {{item.colorClass}}">{{item.evaluation}}</view>
+                </view>
+                <view class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                  <view class="h-2 rounded-full {{item.bgClass}}" style="width: {{item.progressBarPercentage}}%"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+          
+          <!-- 移动的重新测试按钮和提示文字 -->
+          <view class="mt-6 w-full max-w-md mx-auto">
+            <button bindtap="restartTest" class="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none w-full h-12 bg-black hover-bg-blue-600 text-white transition-colors duration-200 shadow-md p-2">
+              <!-- 循环箭头图标 -->
+              <image src="{{icons.loop}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(1);" />重新测试
+            </button>
+            <view class="text-center text-xs text-muted-foreground mt-3">
+              测试结果仅供个人参考，感谢你的参与
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 移到与结果卡片同级的分享和保存按钮 -->
+    <view class="flex gap-3 mb-6 w-full max-w-md mx-auto">
+      <button bindtap="shareToFriends" class="flex-1 flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-gray-300 hover-bg-gray-400 text-black transition-colors duration-200 shadow-md p-2">
+        <!-- 分享图标 -->
+        <image src="{{icons.lightbulb}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(0);" />分享给朋友
+      </button>
+      <button bindtap="saveResult" class="flex-1 flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-black hover-bg-blue-600 text-white transition-colors duration-200 shadow-md p-2">
+        <!-- 保存图标 -->
+        <image src="{{icons.result}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(1);" />保存结果
+      </button>
+    </view>
+  </view>
+</view>
