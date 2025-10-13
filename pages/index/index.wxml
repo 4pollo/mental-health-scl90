@@ -94,7 +94,7 @@
       <view class="text-center mt-6 space-y-2">
         <view class="inline-flex items-center gap-3 text-sm text-muted-foreground bg-white border-2 border-blue-200 px-4 py-2 rounded-full shadow-sm hover-animate-pulse mx-auto">
           <view class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></view>
-          <text class="whitespace-nowrap">已有 5,432 人今日完成测试</text>
+          <text class="whitespace-nowrap">已有 {{serverCount}} 人今日完成测试</text>
         </view>
       </view>
     </view>
