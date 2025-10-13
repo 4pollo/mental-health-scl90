@@ -6,7 +6,7 @@
           <view class="text-lg font-bold">题目 {{currentQuestion}} / 90</view>
           <view class="text-lg font-bold">{{progress}}%</view>
         </view>
-        <view class="w-full bg-gray-200 rounded-full h-25">
+        <view class="w-full bg-white rounded-full h-25">
           <view class="bg-black h-25 rounded-full" style="width: {{progress}}%"></view>
         </view>
       </view>

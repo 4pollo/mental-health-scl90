@@ -30,9 +30,9 @@
       <view class="bg-white rounded-2xl border-2 border-light overflow-hidden shadow-lg">
         <view class="bg-black p-6 text-white">
           <view class="flex items-center gap-3">
-            <view class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: rgba(255, 255, 255, 0.9);">
-              <!-- 剪贴板图标 -->
-              <image src="{{icons.clipboard}}" class="w-7 h-7" mode="aspectFit" style="filter: brightness(0) invert(0);" />
+            <view class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+              <!-- 列表图标 -->
+              <image src="{{icons.list}}" class="w-7 h-7" mode="aspectFit" style="filter: brightness(0) invert(0);" />
             </view>
             <view>
               <view class="text-lg font-bold">测试说明</view>
@@ -54,8 +54,8 @@
             </view>
             <view class="flex items-start gap-3 p-3 rounded-lg bg-gray-100">
               <view class="w-8 h-8 rounded-lg bg-black flex items-center justify-center flex-shrink-0 mt-05">
-                <!-- 图表图标 -->
-                <image src="{{icons.chart}}" class="w-5 h-5" mode="aspectFit" style="filter: brightness(0) invert(1);" />
+                <!-- 列表图标 -->
+                <image src="{{icons.list}}" class="w-5 h-5" mode="aspectFit" style="filter: brightness(0) invert(1);" />
               </view>
               <view>
                 <view class="text-foreground">90道精选题目</view>
@@ -64,8 +64,8 @@
             </view>
             <view class="flex items-start gap-3 p-3 rounded-lg bg-gray-100">
               <view class="w-8 h-8 rounded-lg bg-black flex items-center justify-center flex-shrink-0 mt-05">
-                <!-- 灯泡图标 -->
-                <image src="{{icons.lightbulb}}" class="w-5 h-5" mode="aspectFit" style="filter: brightness(0) invert(1);" />
+                <!-- 星星图标 -->
+                <image src="{{icons.star}}" class="w-5 h-5" mode="aspectFit" style="filter: brightness(0) invert(1);" />
               </view>
               <view>
                 <view class="text-foreground">跟随你的直觉</view>
@@ -75,13 +75,13 @@
           </view>
           <view class="pt-2">
             <button bindtap="startTest" class="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none w-full h-12 bg-black hover-bg-blue-600 text-white transition-colors duration-200 shadow-md p-2 mb-3">
-              <!-- 复选标记图标 -->
-              <image src="{{icons.checkmark}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(1);" />
+              <!-- 星星图标 -->
+              <image src="{{icons.star}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(1);" />
               <text class="text-base font-bold">开始测评</text>
             </button>
             <button bindtap="randomTest" class="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none w-full h-12 bg-gray-300 hover-bg-gray-400 text-black transition-colors duration-200 shadow-md p-2" disabled="{{randomTestLoading}}">
-              <!-- 随机图标 -->
-              <image wx:if="{{!randomTestLoading}}" src="{{icons.lightbulb}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(0);" />
+              <!-- 星星图标 -->
+              <image wx:if="{{!randomTestLoading}}" src="{{icons.star}}" class="w-25 h-25" mode="aspectFit" style="filter: brightness(0) invert(0);" />
               <view wx:if="{{randomTestLoading}}" class="w-25 h-25 flex items-center justify-center">
                 <view class="w-4 h-4 border-2 border-gray-600 border-t-transparent rounded-full animate-spin"></view>
               </view>

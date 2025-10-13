@@ -3,35 +3,50 @@ const icons = {
   // 大脑图标 - Brain icon
   brain: '/images/brain.png',
   
-  // 剪贴板图标 - Clipboard icon
-  clipboard: '/images/list.png',
+  // 列表图标 - List icon
+  list: '/images/list.png',
   
   // 计时器图标 - Timer icon
   timer: '/images/timer.png',
   
   // 图表图标 - Chart icon
-  chart: '/images/list.png',
+  chart: '/images/chart.png',
   
   // 灯泡图标 - Lightbulb icon
-  lightbulb: '/images/star.png',
+  lightbulb: '/images/lightbulb.png',
   
   // 问号图标 - Question mark icon
-  question: '/images/list.png',
+  question: '/images/question.png',
+  
+  // 设置图标 - Setting icon
+  setting: '/images/setting.png',
   
   // 左箭头图标 - Left arrow icon
-  leftArrow: '/images/brain.png',
+  leftArrow: '/images/left_arrow.png',
   
   // 右箭头图标 - Right arrow icon
-  rightArrow: '/images/brain.png',
+  rightArrow: '/images/right_arrow.png',
   
   // 复选标记图标 - Checkmark icon
-  checkmark: '/images/star.png',
+  checkmark: '/images/checkmark.png',
   
   // 循环箭头图标 - Loop arrow icon
-  loop: '/images/star.png',
+  loop: '/images/loop.png',
+  
+  // 星星图标 - Star icon
+  star: '/images/star.png',
+
+  // 分享图标 - Share icon
+  share: '/images/share.png',
+
+  // 日历图标 - Calendar icon
+  calendar: '/images/calendar.png',
   
   // 结果图标 - Result icon
-  result: '/images/result.png'
+  result: '/images/result.png',
+
+  // 结果图标 - Result icon
+  avatar: '/images/user.png'
 };
 
 module.exports = icons;
