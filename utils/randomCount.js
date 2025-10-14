@@ -25,10 +25,41 @@ function generateRandomCountInRange(min, max) {
 }
 
 /**
+ * 检查是否需要重置计数（每日清空）
+ * @returns {boolean} 是否需要重置
+ */
+function shouldResetCount() {
+  // 获取今天日期字符串 (YYYY-MM-DD)
+  const today = new Date().toISOString().split('T')[0];
+  // 从本地存储获取上次计数日期
+  const lastCountDate = wx.getStorageSync('lastCountDate');
+  
+  // 如果日期不匹配，说明需要重置
+  return lastCountDate !== today;
+}
+
+/**
+ * 重置每日计数
+ */
+function resetDailyCount() {
+  // 清空计数
+  wx.removeStorageSync('incrementalRandomCount');
+  // 更新日期记录
+  const today = new Date().toISOString().split('T')[0];
+  wx.setStorageSync('lastCountDate', today);
+}
+
+/**
  * 生成递增的随机计数（根据本地存储的值决定生成逻辑）
+ * 每日自动清空计数
  * @returns {string} 格式化后的递增随机数字符串
  */
 function generateIncrementalRandomCount() {
+  // 检查是否需要重置计数
+  if (shouldResetCount()) {
+    resetDailyCount();
+  }
+  
   // 从本地存储获取当前计数
   let currentCount = wx.getStorageSync('incrementalRandomCount') || 0;
   
