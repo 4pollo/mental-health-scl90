@@ -1,6 +1,24 @@
 // 随机计数模块
 
 /**
+ * 格式化数字为千分位字符串
+ * @param {number} num - 要格式化的数字
+ * @returns {string} 格式化后的字符串
+ */
+function formatNumber(num) {
+  // 确保输入是数字
+  num = Number(num);
+  if (isNaN(num)) {
+    return '0';
+  }
+  
+  // 使用字符串操作实现千分位格式化，确保在所有平台上一致
+  const parts = num.toString().split('.');
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return parts.join('.');
+}
+
+/**
  * 生成1000-5000之间的随机数并格式化为千分位
  * @returns {string} 格式化后的随机数字符串
  */
@@ -8,8 +26,7 @@ function generateRandomCount() {
   // 生成1000-5000之间的随机数
   const randomCount = generateRandomCountInRange(1000, 5000);
   // 格式化为千分位
-  const formattedCount = parseInt(randomCount).toLocaleString();
-  return formattedCount;
+  return formatNumber(randomCount);
 }
 
 /**
@@ -77,8 +94,7 @@ function generateIncrementalRandomCount() {
   wx.setStorageSync('incrementalRandomCount', newCount);
   
   // 格式化为千分位
-  const formattedCount = newCount.toLocaleString();
-  return formattedCount;
+  return formatNumber(newCount);
 }
 
 /**
@@ -92,5 +108,6 @@ module.exports = {
   generateRandomCount,
   generateRandomCountInRange,
   generateIncrementalRandomCount,
-  resetIncrementalRandomCount
+  resetIncrementalRandomCount,
+  formatNumber
 };

@@ -1,6 +1,6 @@
 const icons = require('../../utils/icons.js');
 const { generateRandomAnswers } = require('../../utils/randomTest.js');
-const { generateIncrementalRandomCount } = require('../../utils/randomCount.js');
+const { generateIncrementalRandomCount, formatNumber } = require('../../utils/randomCount.js');
 
 Page({
   data: {
@@ -22,7 +22,7 @@ Page({
     // 从本地存储获取当前计数并显示
     const currentCount = wx.getStorageSync('incrementalRandomCount') || 0;
     this.setData({
-      serverCount: parseInt(currentCount).toLocaleString()
+      serverCount: formatNumber(currentCount)
     });
   },
 

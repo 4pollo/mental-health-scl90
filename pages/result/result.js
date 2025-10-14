@@ -12,7 +12,8 @@ Page({
     icons: icons,
     totalScore: 0,
     mentalHealthLevel: {},
-    dimensionEvaluations: []
+    dimensionEvaluations: [],
+    displayMode: 'list' // 修改默认显示模式为列表模式
   },
 
   onLoad: function (options) {
@@ -51,6 +52,14 @@ Page({
     });
   },
 
+  // 切换显示模式 (恢复原始实现)
+  switchDisplayMode: function(e) {
+    const mode = e.currentTarget.dataset.mode;
+    this.setData({
+      displayMode: mode
+    });
+  },
+
   // 重新测试
   restartTest: function() {
     // 清除全局数据
@@ -77,15 +86,24 @@ Page({
   saveResult: function() {
     wx.showModal({
       title: '保存结果',
-      content: '请使用手机的截图功能保存当前页面。截图时建议包含整个结果卡片区域。',
+      content: '表格模式更适合截图保存，是否切换到表格模式？',
       showCancel: true,
-      confirmText: '知道了',
-      cancelText: '稍后截图',
-      success: function(res) {
+      confirmText: '切换表格',
+      cancelText: '保持当前',
+      success: (res) => {
         if (res.confirm) {
-          // 可以添加进一步的引导说明
+          // 切换到表格模式
+          this.setData({
+            displayMode: 'table'
+          });
           wx.showToast({
-            title: '可以开始截图了',
+            title: '已切换到表格模式，现在可以截图了',
+            icon: 'none'
+          });
+        } else if (res.cancel) {
+          // 保持当前模式，但仍提示如何截图
+          wx.showToast({
+            title: '请使用手机的截图功能保存当前页面',
             icon: 'none'
           });
         }

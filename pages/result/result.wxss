@@ -295,6 +295,15 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
+/* 增加w-4和h-4的定义，用于小图标 */
+.w-4 {
+  width: 1rem;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
 /* 增加w-5和h-5的定义，用于小图标 */
 .w-5 {
   width: 1.25rem;
@@ -367,4 +376,81 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+}
+
+/* 表格显示相关样式 */
+.grid {
+  display: grid;
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.divide-y > view + view {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.divide-gray-200 > view + view {
+  border-top-color: #e0e0e0;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.border-gray-200 {
+  border-color: #e0e0e0;
+}
+
+/* 表格文字样式 - 调整字号 */
+.table-text {
+  font-size: 0.75rem; /* text-xs size */
+  line-height: 1rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* 显示模式切换按钮的特定圆角样式 */
+.display-mode-btn:first-child {
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.display-mode-btn:last-child {
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
