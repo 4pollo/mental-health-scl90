@@ -19,12 +19,35 @@ function formatNumber(num) {
 }
 
 /**
- * 生成1000-5000之间的随机数并格式化为千分位
+ * 生成根据时间段变化范围的随机数并格式化为千分位
+ * 0-8点: 1000-5000
+ * 8-16点: 5000-10000
+ * 16-24点: 10000-15000
  * @returns {string} 格式化后的随机数字符串
  */
 function generateRandomCount() {
-  // 生成1000-5000之间的随机数
-  const randomCount = generateRandomCountInRange(1000, 5000);
+  // 获取当前小时
+  const currentHour = new Date().getHours();
+  
+  let min, max;
+  
+  // 根据时间段设置不同的范围
+  if (currentHour >= 0 && currentHour < 8) {
+    // 凌晨0点-8点，生成1000-5000之间的随机数
+    min = 1000;
+    max = 5000;
+  } else if (currentHour >= 8 && currentHour < 16) {
+    // 8点到16点，生成5000-10000之间的随机数
+    min = 5000;
+    max = 10000;
+  } else {
+    // 16点到24点，生成10000-15000之间的随机数
+    min = 10000;
+    max = 15000;
+  }
+  
+  // 生成指定范围内的随机数
+  const randomCount = generateRandomCountInRange(min, max);
   // 格式化为千分位
   return formatNumber(randomCount);
 }
@@ -82,8 +105,8 @@ function generateIncrementalRandomCount() {
   
   let newCount;
   if (currentCount < 100) {
-    // 如果当前计数小于100，生成1000~3000的随机数
-    newCount = generateRandomCountInRange(1000, 3000);
+    // 如果当前计数小于100，直接调用generateRandomCount函数生成随机数
+    newCount = parseInt(generateRandomCount().replace(/,/g, ''));
   } else {
     // 如果当前计数大于等于100，生成100~200的随机数，再与本地存储的计数相加
     const randomIncrement = generateRandomCountInRange(100, 200);
