@@ -109,7 +109,7 @@
     
     <!-- 移到与结果卡片同级的分享和保存按钮 -->
     <view class="flex gap-3 mb-6 w-full max-w-md mx-auto">
-      <button bindtap="shareToFriends" class="flex-1 flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-gray-300 hover-bg-gray-400 text-black transition-colors duration-200 shadow-md p-2">
+      <button open-type="share" class="flex-1 flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none h-12 bg-gray-300 hover-bg-gray-400 text-black transition-colors duration-200 shadow-md p-2">
         <!-- 分享图标 -->
         <image src="{{icons.share}}" class="w-5 h-5" mode="aspectFit" style="filter: brightness(0) invert(0);" />分享给朋友
       </button>

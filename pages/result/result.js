@@ -74,12 +74,8 @@ Page({
 
   // 分享给朋友
   shareToFriends: function() {
-    wx.showModal({
-      title: '提示',
-      content: '点击右上角菜单选择分享给朋友',
-      showCancel: false,
-      confirmText: '我知道了'
-    });
+    // 由于使用了open-type="share"，这个函数可以保持空实现或者用于其他逻辑
+    // 原生分享功能会自动调用onShareAppMessage
   },
 
   // 保存结果
@@ -144,6 +140,24 @@ Page({
       return '#e57373'; // 温和的红色
     } else {
       return '#d32f2f'; // 深红色
+    }
+  },
+
+  // 小程序原生分享功能
+  onShareAppMessage: function() {
+    return {
+      title: 'SCL-90心理健康测评',
+      path: '/pages/index/index',
+      imageUrl: '' // 可以设置分享图片
+    }
+  },
+
+  // 朋友圈分享
+  onShareTimeline: function() {
+    return {
+      title: 'SCL-90心理健康测评',
+      query: '',
+      imageUrl: '' // 可以设置分享图片
     }
   }
 })

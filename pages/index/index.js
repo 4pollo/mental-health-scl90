@@ -66,5 +66,23 @@ Page({
         }
       })
     }, 500);
+  },
+
+  // 小程序原生分享功能
+  onShareAppMessage: function() {
+    return {
+      title: 'SCL-90心理健康测评',
+      path: '/pages/index/index',
+      imageUrl: '' // 可以设置分享图片
+    }
+  },
+
+  // 朋友圈分享
+  onShareTimeline: function() {
+    return {
+      title: 'SCL-90心理健康测评',
+      query: '',
+      imageUrl: '' // 可以设置分享图片
+    }
   }
 })
